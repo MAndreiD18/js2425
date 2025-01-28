@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Modificatori RegEx Javascript</h1>
+    <p id="demo"></p>
+    <script>
+        // let sursa = '12, 34, 56';
+        // let pattern = /,\s*/;
+        // let result = sursa.split(pattern);
+        // console.log(result);
+
+        let text = `JavaScript este un limbaj de programare diferit de limbaju java 
+        si nici nu are legatura cu insula Java`
+        let pattern = /Java(\s)/gi;
+        let result = text.match(pattern);
+        console.log(result);
+        
+
+    </script>
+    
+</body>
+</html>
