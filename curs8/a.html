@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // const obj = {a:1};
+        // const copy = Object.assign(obj,{});
+        // console.log(copy);
+
+        // let obj = {a:1};
+        // let copy = Object.create(obj);
+        // copy.a = 2;
+        // copy.b = 5;
+
+        // console.log(copy);
+
+
+        let student = {
+            id : 7,
+            nume : 'Andrei',
+            varsta : 36,
+            nota1 : 7,
+            nota2 : 8,
+            note : [5,2,5,7]
+        };
+
+        function salut(id){
+            console.log(`Salut,studentul numarul ${student.id}`);
+        }
+        salut();
+
+        function examen(){
+            console.log(`Nota la limba engl este: ${student.nota1}`);
+            console.log(`Nota la limba franc este: ${student.nota2}`);
+
+        }
+        examen();
+
+        function calMedia(nota1,nota2){
+            console.log(`Media obtinuta este:` + (student.nota1 + student.nota2)/2);
+        }
+        calMedia();
+
+    </script>
+    
+</body>
+</html>

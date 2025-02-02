@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nr = +eval(prompt('Introdu un numar: ', 1));
+        let invers = '', min = 9, max = 0, suma = 0;
+      
+        nrInvers(nr);
+
+        function nrInvers(x){
+            while(x != 0){
+                let ultimaCifra = x%10;  //ultima cifra a nr
+                x = Math.floor(x/10); //eliminam ultima cifra
+                invers += ultimaCifra; //folosim concatenarea
+                
+             
+            }
+      
+        }
+        document.write(`<p> Inversul numarului ${nr} este: `, invers);
+
+
+
+    </script>
+    
+</body>
+</html>
