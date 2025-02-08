@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>.product {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Filtru de căutare -->
+<input type="text" id="search" placeholder="Search product...">
+
+<!-- Filtru de preț (Range Slider) -->
+<label for="priceRange">Price:</label>
+<input type="range" id="priceRange" min="0" max="1000" value="100">
+<span id="priceValue">100</span>
+
+<!-- Lista de produse -->
+<div id="products">
+    <div class="product" data-name="Table Ikea" data-price="200">Table Ikea - $200</div>
+    <div class="product" data-name="Chair Marcos" data-price="100">Chair Marcos - $100</div>
+    <div class="product" data-name="Desk Caressa" data-price="400">Desk Caressa - $400</div>
+    <div class="product" data-name="Sofa Lidy" data-price="800">Sofa Lidy - $800</div>
+</div>
+
+<script>
+    const searchInput = document.getElementById("search");
+const priceRange = document.getElementById("priceRange");
+const priceValue = document.getElementById("priceValue");
+const products = document.querySelectorAll(".product");
+
+// Actualizează valoarea range-ului
+priceRange.addEventListener("input", function () {
+    priceValue.textContent = priceRange.value;
+    filterProducts();
+});
+
+// Ascultă modificările în câmpul de căutare
+searchInput.addEventListener("input", function () {
+    filterProducts();
+});
+
+// Funcția care aplică ambele filtre
+function filterProducts() {
+    const searchText = searchInput.value.toLowerCase();
+    const maxPrice = parseInt(priceRange.value, 10);
+
+    products.forEach(product => {
+        const productName = product.dataset.name.toLowerCase();
+        const productPrice = parseInt(product.dataset.price, 10);
+
+        // Se afișează doar produsele care respectă ambele filtre
+        if (productName.includes(searchText) && productPrice <= maxPrice) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+}
+
+</script>
+    
+</body>
+</html>
